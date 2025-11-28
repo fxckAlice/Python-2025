@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home | Bloggers Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        h1, h2 { margin-bottom: 10px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 40px; }
+        th, td { border: 1px solid #333; padding: 10px; text-align: left; }
+        th { background: #f1f1f1; }
+        a { color: #0066cc; text-decoration: none; }
+        a.disabled-link { cursor: default; color: #999; }
+        a:hover { text-decoration: underline; }
+        .nav-links { margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<h1>Home</h1>
+
+<h2>Top Bloggers</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Description</th>
+    </tr>
+
+    {% for b in top_bloggers %}
+    <tr>
+        <td><a href="/bloggers/{{ b.id }}/">{{ b.name }}</a></td>
+        <td>{{ b.category }}</td>
+        <td>{{ b.description }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Latest News</h2>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Description</th>
+    </tr>
+
+    {% for n in latest_news %}
+    <tr>
+        <td><a class="disabled-link">{{ n.title }}</a></td>
+        <td>{{ n.date }}</td>
+        <td>{{ n.short_description }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div class="nav-links">
+    <a href="/bloggers/">Go to Bloggers List</a>
+</div>
+
+</body>
+</html>

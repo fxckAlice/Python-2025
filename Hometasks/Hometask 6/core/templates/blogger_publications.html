@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Publications of {{ blogger.name }} | Bloggers Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        h1 { margin-bottom: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 40px; }
+        th, td { border: 1px solid #333; padding: 10px; }
+        th { background: #f1f1f1; }
+        a { color: #0066cc; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<h1>Publications of {{ blogger.name }}</h1>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Description</th>
+    </tr>
+
+    {% for p in publications %}
+    <tr>
+        <td><a href="/publications/{{ p.id }}/">{{ p.title }}</a></td>
+        <td>{{ p.type }}</td>
+        <td>{{ p.published_at }}</td>
+        <td>{{ p.short_description }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p>
+    <a href="/bloggers/{{ blogger.id }}/">Back to Blogger</a><br>
+    <a href="/publications/">Back to All Publications</a>
+</p>
+
+</body>
+</html>

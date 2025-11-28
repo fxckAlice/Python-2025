@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Publications | Bloggers Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        h1 { margin-bottom: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 40px; }
+        th, td { border: 1px solid #333; padding: 10px; text-align: left; }
+        th { background: #f1f1f1; }
+        a { color: #0066cc; text-decoration: none; }
+        a.disabled-link { cursor: default; color: #999; }
+        a:hover { text-decoration: underline; }
+        .filters { margin-bottom: 20px; }
+        .filters input { padding: 6px; }
+        .filters button { padding: 6px 12px; }
+    </style>
+</head>
+<body>
+
+<h1>All Publications</h1>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Blogger</th>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Description</th>
+    </tr>
+
+    {% for p in publications %}
+    <tr>
+        <td><a href="/publications/{{ p.id }}">{{ p.title }}</a></td>
+        <td>
+            <a href="/bloggers/{{ p.blogger_id }}/">
+                {{ p.blogger.name }}
+            </a>
+        </td>
+        <td>{{ p.type }}</td>
+        <td>{{ p.published_at }}</td>
+        <td>{{ p.short_description }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/">Back to Home</a>
+
+</body>
+</html>

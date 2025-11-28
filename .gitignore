@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.egg-info/
+*.egg
+*.log
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Django stuff
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+static/
+
+# VSCode
+.vscode/
+.idea/
+
+# Byte-compiled / optimized / DLL files
+*.so
+
+# Migrations (можеш залишити або видалити, якщо хочеш відслідковувати)
+*/migrations/__pycache__/
+*/migrations/*.py
+
+# Cache
+*.cache
+*.pot
+*.mo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+
+# PyTest
+.cache/
+.pytest_cache/
+
+# Pipenv
+Pipfile.lock
+
+# Local settings
+local_settings.py

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Publication | Bloggers Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        h1, h2 { margin-bottom: 10px; }
+        .section { margin-bottom: 40px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #333; padding: 10px; }
+        th { background: #f1f1f1; }
+        a { color: #0066cc; text-decoration: none; }
+        a.disabled-link { cursor: default; color: #999; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<h1>{{ publication.title }}</h1>
+
+<div class="section">
+    <h2>Publication Info</h2>
+    <p><strong>Blogger:</strong>
+        <a href="/bloggers/{{ publication.blogger_id }}/">
+            Blogger {{ publication.blogger_id }}
+        </a>
+    </p>
+
+    <p><strong>Type:</strong> {{ publication.type }}</p>
+    <p><strong>Date:</strong> {{ publication.published_at }}</p>
+    <p><strong>Description:</strong> {{ publication.short_description }}</p>
+
+    <h2>Content</h2>
+    <p>
+        <a class="disabled-link">View Content</a>
+    </p>
+
+    <p>
+        <a href="/publications/">Back to Publications List</a>
+    </p>
+</div>
+
+</body>
+</html>

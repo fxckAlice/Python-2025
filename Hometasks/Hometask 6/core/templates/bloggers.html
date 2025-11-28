@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bloggers List | Bloggers Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        h1 { margin-bottom: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 40px; }
+        th, td { border: 1px solid #333; padding: 10px; }
+        th { background: #f1f1f1; }
+        a { color: #0066cc; text-decoration: none; }
+        a.disabled-link { cursor: default; color: #999; }
+        a:hover { text-decoration: underline; }
+        .filters { margin-bottom: 20px; }
+        .filters input { padding: 6px; }
+        .filters button { padding: 6px 12px; }
+    </style>
+</head>
+<body>
+
+<h1>Bloggers List</h1>
+
+<div class="filters">
+    <form method="get" action="/bloggers/">
+        <input type="text" name="category" placeholder="Filter by category" value="{{ request.GET.category }}">
+        <input type="number" name="limit" placeholder="Limit" value="{{ request.GET.limit }}">
+        <button type="submit">Apply</button>
+    </form>
+</div>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Social</th>
+    </tr>
+
+    {% for b in bloggers %}
+    <tr>
+        <td><a href="/bloggers/{{ b.id }}/">{{ b.name }}</a></td>
+        <td>{{ b.category }}</td>
+        <td>{{ b.description }}</td>
+        <td>
+            <a class="disabled-link">YT</a> |
+            <a class="disabled-link">IG</a> |
+            <a class="disabled-link">TT</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/">Back to Home</a>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Information</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            font-family: Arial, sans-serif;
+        }
+
+        h1, h2 {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .car-make {
+            font-weight: bold;
+        }
+
+        .car-details {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Car Information</h1>
+    <div>
+        <h2>Cars List</h2>
+        <ul>
+            {% for car in cars %}
+                <li>
+                    <span class="car-make">
+                        {{ car.CAR_BRAND.BRAND_NAME }} {{ car.CAR_NAME }} ({{ car.CAR_MODEL }})
+                    </span>
+                    -
+                    <span class="car-details">
+                        ${{ car.CAR_PRICE }}
+                    </span>
+                </li>
+            {% empty %}
+                <li>No cars found.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+</body>
+</html>
